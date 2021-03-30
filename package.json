@@ -1,0 +1,16 @@
+{
+  "name": "worker-calls",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.3"
+  }
+}
