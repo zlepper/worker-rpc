@@ -15,6 +15,4 @@ export class MyClass {
   public toJson(o: any): string {
     return JSON.stringify(o);
   }
-
-  public myProp: string = 'foo';
 }

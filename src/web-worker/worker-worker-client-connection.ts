@@ -1,7 +1,7 @@
 import { CrossInvocation, CrossInvocationResult } from '../shared/cross-invocation.js';
-import { WorkerClientConnection } from './worker-client-connection.js';
+import { WorkerClientConnection } from '../client/worker-client-connection.js';
 
-export class WorkerWorkerConnection implements WorkerClientConnection {
+export class WorkerWorkerClientConnection implements WorkerClientConnection {
   constructor(private worker: Worker) {
     this.worker.addEventListener('message', this.workerCallback);
   }

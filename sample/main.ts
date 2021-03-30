@@ -1,11 +1,11 @@
-import { MyClass } from '../shared/my-class';
-import { wrapBackgroundService } from './worker-consumer.js';
-import { WorkerWorkerConnection } from './worker-worker-connection.js';
+import { MyClass } from './my-class.js';
+import { wrapBackgroundService } from '../src/client/worker-consumer.js';
+import { WorkerWorkerClientConnection } from '../src/web-worker/worker-worker-client-connection.js';
 
-const worker = new Worker('build/worker/worker.js', {
+const worker = new Worker('build/sample/worker.js', {
   type: 'module',
 });
-const workerConnection = new WorkerWorkerConnection(worker);
+const workerConnection = new WorkerWorkerClientConnection(worker);
 
 const wrapper = wrapBackgroundService<MyClass>(workerConnection);
 

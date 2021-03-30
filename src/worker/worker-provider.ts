@@ -1,4 +1,5 @@
 import { CrossInvocation, FailedCrossInvocationResult, SuccessfulCrossInvocationResult } from '../shared/cross-invocation.js';
+import {WorkerServerConnection} from "./worker-server-connection.js";
 
 interface WorkerProviderRef {
   stop(): void;
@@ -6,20 +7,15 @@ interface WorkerProviderRef {
 }
 
 class WorkerProvider<T extends object> implements WorkerProviderRef {
-  // Keep around as a "free" function, so we can unregister it again
-  private incomingMessageHandler = (ev: MessageEvent) => {
-    this.handleInvocation(ev.data);
-  }
-
-  constructor(private target: T) {
+  constructor(private target: T, private serverConnection: WorkerServerConnection) {
   }
 
   stop(): void {
-    removeEventListener('message', this.incomingMessageHandler);
+    this.serverConnection.removeListener();
   }
 
   start(): void {
-    addEventListener('message', this.incomingMessageHandler);
+    this.serverConnection.addListener(data => this.handleInvocation(data));
   }
 
   private sendErrorResponse(invocation: CrossInvocation<any, any>, error: Error) {
@@ -31,7 +27,7 @@ class WorkerProvider<T extends object> implements WorkerProviderRef {
 
     // Not entirely sure why typescript confuses the overload here, but i'm not going to think too much about it
     // this specific part is never exposed to the end consumer, so it should be safe to just "ignore"
-    postMessage(errorMessage, null as any);
+    this.serverConnection.send(errorMessage);
   }
 
   private sendSuccessResponse<TPropertyName extends keyof T>(invocation: CrossInvocation<T, TPropertyName>, result: T[TPropertyName]) {
@@ -41,7 +37,7 @@ class WorkerProvider<T extends object> implements WorkerProviderRef {
       success: true,
     };
 
-    postMessage(message, null as any);
+    this.serverConnection.send(message);
   }
 
   private handleInvocation<TPropertyName extends keyof T>(invocation: CrossInvocation<T, TPropertyName>) {
@@ -67,18 +63,17 @@ class WorkerProvider<T extends object> implements WorkerProviderRef {
           this.sendErrorResponse(invocation, error);
         });
     } catch (e) {
-      console.error('Exception in worker', e);
       this.sendErrorResponse(invocation, e);
     }
   }
 }
 
-export function startWorkerProvider<T extends object>(target: T): WorkerProviderRef {
-  const provider = createWorkerProvider(target);
+export function startWorkerProvider<T extends object>(target: T, serverConnection: WorkerServerConnection): WorkerProviderRef {
+  const provider = createWorkerProvider(target, serverConnection);
   provider.start();
   return provider;
 }
 
-export function createWorkerProvider<T extends object>(target: T): WorkerProviderRef {
-  return new WorkerProvider(target);
+export function createWorkerProvider<T extends object>(target: T, serverConnection: WorkerServerConnection): WorkerProviderRef {
+  return new WorkerProvider(target, serverConnection);
 }

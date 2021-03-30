@@ -1,6 +1,5 @@
 {
   "arrowParens": "avoid",
-  "parser": "typescript",
   "endOfLine": "lf",
   "singleQuote": true,
   "semi": true,
