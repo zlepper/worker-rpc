@@ -1,4 +1,5 @@
 import {CrossInvocation, CrossInvocationResult, FunctionArguments} from '../shared/cross-invocation.js';
+import {WorkerClientConnection} from "./worker-client-connection.js";
 
 type ResultListener<T extends object, TPropertyName extends keyof T> = (result: CrossInvocationResult<T, TPropertyName>) => void;
 type Cleanup = () => void;
@@ -27,11 +28,9 @@ class BackgroundWrapper<T extends object> {
   private refId: number = 1;
   private pipe = new EventPipe();
 
-  constructor(private worker: Worker) {
-    worker.addEventListener('message', ev => {
-      console.log({ evData: ev.data });
-
-      this.pipe.emit(ev.data);
+  constructor(private workerConnection: WorkerClientConnection) {
+    workerConnection.addListener(data => {
+      this.pipe.emit(data);
     });
   }
 
@@ -53,7 +52,7 @@ class BackgroundWrapper<T extends object> {
           cleanup();
         });
 
-        this.worker.postMessage(message);
+        this.workerConnection.send(message);
       });
     };
   }
@@ -91,12 +90,8 @@ export type WrappedObject<T> = {
   readonly [property in keyof T as T[property] extends Function ? property : never]: AsyncProperty<T[property]>;
 };
 
-export function wrapUsingWorker<T extends object>(workerFileUrl: string): WrappedObject<T> {
-  const worker = new Worker(workerFileUrl, {
-    type: 'module',
-  });
-
-  const wrapper = new BackgroundWrapper<T>(worker);
+export function wrapBackgroundService<T extends object>(workerConnection: WorkerClientConnection): WrappedObject<T> {
+  const wrapper = new BackgroundWrapper<T>(workerConnection);
 
   const proxiedWrapper = new Proxy({} as T, wrapper as any as ProxyHandler<T>);
 

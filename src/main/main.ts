@@ -1,7 +1,13 @@
 import { MyClass } from '../shared/my-class';
-import { wrapUsingWorker } from './worker-consumer.js';
+import { wrapBackgroundService } from './worker-consumer.js';
+import { WorkerWorkerConnection } from './worker-worker-connection.js';
 
-const wrapper = wrapUsingWorker<MyClass>('build/worker/worker.js');
+const worker = new Worker('build/worker/worker.js', {
+  type: 'module',
+});
+const workerConnection = new WorkerWorkerConnection(worker);
+
+const wrapper = wrapBackgroundService<MyClass>(workerConnection);
 
 const result = wrapper.sayHello('Zlepper');
 
