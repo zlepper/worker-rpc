@@ -1,5 +1,5 @@
-import {CrossInvocation, CrossInvocationResult, FunctionArguments} from '../shared/cross-invocation.js';
-import {WorkerClientConnection} from "./worker-client-connection.js";
+import {CrossInvocation, CrossInvocationResult, FunctionArguments} from '../shared';
+import {WorkerClientConnection} from "./worker-client-connection";
 
 type ResultListener<T extends object, TPropertyName extends keyof T> = (result: CrossInvocationResult<T, TPropertyName>) => void;
 type Cleanup = () => void;

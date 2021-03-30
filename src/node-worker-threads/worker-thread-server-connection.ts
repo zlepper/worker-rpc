@@ -1,5 +1,5 @@
-import { CrossInvocation, CrossInvocationResult } from '../shared/cross-invocation.js';
-import { WorkerServerConnection } from '../worker/worker-server-connection.js';
+import { CrossInvocation, CrossInvocationResult } from '../shared';
+import { WorkerServerConnection } from '../worker';
 import { MessagePort } from 'worker_threads';
 
 export class WorkerThreadServerConnection implements WorkerServerConnection {
