@@ -1,7 +1,7 @@
 import { CrossInvocation, CrossInvocationResult } from '../shared/cross-invocation.js';
 import { WorkerServerConnection } from '../worker/worker-server-connection.js';
 
-export class WorkerWorkerServerConnection implements WorkerServerConnection {
+export class WebWorkerServerConnection implements WorkerServerConnection {
   private wrapperCallback?: (data: CrossInvocation) => void;
 
   private workerListener = (ev: MessageEvent) => {

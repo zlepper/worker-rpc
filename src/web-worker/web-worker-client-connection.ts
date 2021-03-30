@@ -1,12 +1,12 @@
 import { CrossInvocation, CrossInvocationResult } from '../shared/cross-invocation.js';
 import { WorkerClientConnection } from '../client/worker-client-connection.js';
 
-export class WorkerWorkerClientConnection implements WorkerClientConnection {
+export class WebWorkerClientConnection implements WorkerClientConnection {
   constructor(private worker: Worker) {
     this.worker.addEventListener('message', this.workerCallback);
   }
 
-  private wrapperCallback?: (data: CrossInvocationResult<any, any>) => void;
+  private wrapperCallback?: (data: CrossInvocationResult) => void;
 
   private workerCallback = (ev: MessageEvent) => {
     if (this.wrapperCallback) {
@@ -14,11 +14,11 @@ export class WorkerWorkerClientConnection implements WorkerClientConnection {
     }
   };
 
-  addListener(callback: (data: CrossInvocationResult<any, any>) => void): void {
+  addListener(callback: (data: CrossInvocationResult) => void): void {
     this.wrapperCallback = callback;
   }
 
-  send(message: CrossInvocation<any, any>): void {
+  send(message: CrossInvocation): void {
     this.worker.postMessage(message);
   }
 }
