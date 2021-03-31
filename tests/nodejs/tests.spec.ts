@@ -24,7 +24,7 @@ describe('NodeJS', function() {
   let calculator: WrappedObject<Calculator>;
   let worker: Worker;
 
-  beforeEach(function() {
+  before(function() {
     [calculator, worker] = create();
   })
 
@@ -43,7 +43,7 @@ describe('NodeJS', function() {
     expect(result).to.equal(10);
   });
 
-  afterEach(function() {
+  after(function() {
     return worker.terminate();
   })
 });

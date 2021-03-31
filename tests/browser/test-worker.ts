@@ -1,5 +1,5 @@
 import { startWorkerProvider, WebWorkerServerConnection } from '../../src';
-import { MyClass } from '../shared/my-class.js';
+import { Calculator } from '../shared/calculator';
 
 const connection = new WebWorkerServerConnection();
-startWorkerProvider(new MyClass(), connection);
+startWorkerProvider(new Calculator(), connection);

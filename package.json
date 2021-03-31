@@ -2,13 +2,17 @@
   "name": "worker-calls",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:nodejs && npm run test:browser",
     "test:nodejs": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/nodejs/*.spec.ts'",
+    "test:browser": "npm run test:browser:chrome && npm run test:browser:firefox",
+    "test:browser:chrome": "cypress run --browser chrome",
+    "test:browser:firefox": "cypress run --browser firefox",
     "watch": "tsc --watch",
     "build": "tsc",
-    "node-js-sample": "node build/sample/nodejs/main.js"
+    "build:browser-tests": "webpack -c tests/browser/webpack.config.ts",
+    "node-js-sample": "node build/sample/nodejs/main.js",
+    "cypress": "cypress open"
   },
   "keywords": [],
   "author": "",
@@ -18,9 +22,13 @@
     "@types/mocha": "^8.2.2",
     "@types/node": "^14.14.37",
     "chai": "^4.3.4",
+    "cypress": "^6.8.0",
     "mocha": "^8.3.2",
     "prettier": "^2.2.1",
+    "ts-loader": "^8.1.0",
     "ts-node": "^9.1.1",
-    "typescript": "^4.2.3"
+    "typescript": "^4.2.3",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0"
   }
 }

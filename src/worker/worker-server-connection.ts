@@ -7,13 +7,13 @@ export interface WorkerServerConnection {
   /**
    * Should serialize and send the message across to the worker
    */
-  send(message: CrossInvocationResult<any, any>): void;
+  send(message: CrossInvocationResult): void;
 
   /**
    * Invoked to register the listener. The callback should be invoked whenever
    * there is new data from the underlying worker.
    */
-  addListener(callback: (data: CrossInvocation<any, any>) => void): void;
+  addListener(callback: (data: CrossInvocation) => void): void;
 
   /**
    * Should remove the registered listener and stop listening for events
