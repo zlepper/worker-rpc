@@ -1,6 +1,6 @@
 {
   "name": "@zlepper/rpc.ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Allows RPC from the main thread to a background worker thread (Of any kind), using ES6 classes.",
   "main": "build/src/index.js",
   "scripts": {
