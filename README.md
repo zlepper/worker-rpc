@@ -1,11 +1,11 @@
-# RPC.ts (Better name would be lovely)
+# RPC (Better name would be lovely)
 
-RPC.ts is a tiny library that makes it easier to deal with web-workers, or any other
+RPC is a tiny library that makes it easier to deal with web-workers, or any other
 kind of background thread in js/ts land. 
 
 ## Installation
 ```shell
-npm install --save @zlepper/rpc.ts
+npm install --save @zlepper/rpc
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ Next create the worker initialization code:
 
 `worker.ts`
 ```ts
-import { startWorkerProvider, WebWorkerServerConnection } from '@zlepper/rpc.ts';
+import { startWorkerProvider, WebWorkerServerConnection } from '@zlepper/rpc';
 import { Calculator } from './calculator';
 
 const connection = new WebWorkerServerConnection();
@@ -44,7 +44,7 @@ Lastly in your main thread: Start the worker and connect to it:
 
 ```ts
 import { Calculator } from './calculator';
-import { wrapBackgroundService, WebWorkerClientConnection } from '@zlepper/rpc.ts';
+import { wrapBackgroundService, WebWorkerClientConnection } from '@zlepper/rpc';
 
 const worker = new Worker('worker.ts', {
   type: 'module'
