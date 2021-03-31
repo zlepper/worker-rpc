@@ -1,0 +1,7 @@
+tests/
+sample/
+index.html
+cypress.json
+.prettierrc
+.editorconfig
+.idea/

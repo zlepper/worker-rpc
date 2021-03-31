@@ -1,22 +1,28 @@
 {
-  "name": "worker-calls",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@zlepper/rpc.ts",
+  "version": "0.0.1",
+  "description": "Allows RPC from the main thread to a background worker thread (Of any kind), using ES6 classes.",
+  "main": "build/src/index.js",
   "scripts": {
     "test": "npm run test:nodejs && npm run test:browser",
     "test:nodejs": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/nodejs/*.spec.ts'",
-    "test:browser": "npm run test:browser:chrome && npm run test:browser:firefox",
+    "test:browser": "npm run build:browser-tests && npm run test:browser:chrome && npm run test:browser:firefox",
     "test:browser:chrome": "cypress run --browser chrome",
     "test:browser:firefox": "cypress run --browser firefox",
     "watch": "tsc --watch",
     "build": "tsc",
     "build:browser-tests": "webpack -c tests/browser/webpack.config.ts",
     "node-js-sample": "node build/sample/nodejs/main.js",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "prepare": "npm run build && npm run test"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "RMI",
+    "RPC"
+  ],
+  "author": "Zlepper",
   "license": "MIT",
+  "types": "build/src/index.d.ts",
   "devDependencies": {
     "@types/chai": "^4.2.15",
     "@types/mocha": "^8.2.2",

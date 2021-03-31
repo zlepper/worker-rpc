@@ -9,7 +9,8 @@
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "declaration": true
   },
   "exclude": [
     "node_modules"
