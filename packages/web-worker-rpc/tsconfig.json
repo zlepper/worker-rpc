@@ -2,5 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "lib": ["ES2015", "WebWorker"]
-  }
+  },
+  "files": ["index.ts"]
 }

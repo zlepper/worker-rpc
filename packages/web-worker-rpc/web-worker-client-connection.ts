@@ -1,5 +1,4 @@
-import { CrossInvocation, CrossInvocationResult } from '../shared';
-import { WorkerClientConnection } from '../client';
+import { CrossInvocation, CrossInvocationResult, WorkerClientConnection } from '@zlepper/rpc';
 
 export class WebWorkerClientConnection implements WorkerClientConnection {
   constructor(private worker: Worker) {

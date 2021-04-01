@@ -1,5 +1,4 @@
-import { CrossInvocation, CrossInvocationResult } from '../shared';
-import { WorkerServerConnection } from '../worker';
+import { CrossInvocation, CrossInvocationResult, WorkerServerConnection } from '@zlepper/rpc';
 
 export class WebWorkerServerConnection implements WorkerServerConnection {
   private wrapperCallback?: (data: CrossInvocation) => void;

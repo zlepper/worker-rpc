@@ -9,12 +9,11 @@
     "test:browser": "npm run build:browser-tests && npm run test:browser:chrome && npm run test:browser:firefox",
     "test:browser:chrome": "cypress run --browser chrome",
     "test:browser:firefox": "cypress run --browser firefox",
+    "build:browser-tests": "webpack -c tests/browser/webpack.config.ts",
     "watch": "tsc --watch",
     "build": "tsc",
-    "build:browser-tests": "webpack -c tests/browser/webpack.config.ts",
     "node-js-sample": "node build/sample/nodejs/main.js",
-    "cypress": "cypress open",
-    "prepare": "npm run build && npm run test"
+    "cypress": "cypress open"
   },
   "keywords": [
     "RMI",
@@ -22,19 +21,5 @@
   ],
   "author": "Zlepper",
   "license": "MIT",
-  "types": "build/src/index.d.ts",
-  "devDependencies": {
-    "@types/chai": "^4.2.15",
-    "@types/mocha": "^8.2.2",
-    "@types/node": "^14.14.37",
-    "chai": "^4.3.4",
-    "cypress": "^6.8.0",
-    "mocha": "^8.3.2",
-    "prettier": "^2.2.1",
-    "ts-loader": "^8.1.0",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.3",
-    "webpack": "^5.28.0",
-    "webpack-cli": "^4.6.0"
-  }
+  "types": "build/src/index.d.ts"
 }

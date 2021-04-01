@@ -1,0 +1,22 @@
+{
+  "name": "web-worker-rpc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:browser",
+    "test:browser": "npm run build:browser-tests && npm run test:browser:chrome && npm run test:browser:firefox",
+    "test:browser:chrome": "cypress run --browser chrome",
+    "test:browser:firefox": "cypress run --browser firefox",
+    "build:browser-tests": "webpack -c tests/webpack.config.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "@zlepper/rpc": "0.0.3"
+  },
+  "devDependencies": {
+    "cypress": "^6.8.0"
+  }
+}

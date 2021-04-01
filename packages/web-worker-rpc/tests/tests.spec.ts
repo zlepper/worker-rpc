@@ -1,5 +1,6 @@
-import { WebWorkerClientConnection, wrapBackgroundService, WrappedObject } from '../../src';
-import { Calculator } from '../shared/calculator';
+import { wrapBackgroundService, WrappedObject } from '@zlepper/rpc';
+import { WebWorkerClientConnection } from '../web-worker-client-connection';
+import { Calculator } from './calculator';
 
 function create(): [WrappedObject<Calculator>, Worker] {
   const worker = new Worker('/build/test-worker.js', {

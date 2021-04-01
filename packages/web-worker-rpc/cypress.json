@@ -4,7 +4,7 @@
   "supportFile": false,
   "screenshotOnRunFailure": false,
   "video": false,
-  "fileServerFolder": "tests/browser",
-  "integrationFolder": "tests/browser",
+  "fileServerFolder": "tests",
+  "integrationFolder": "tests",
   "testFiles": "**/*.spec.ts"
 }
