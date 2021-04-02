@@ -5,3 +5,4 @@ cypress.json
 .prettierrc
 .editorconfig
 .idea/
+babel.config.js

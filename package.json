@@ -4,8 +4,12 @@
   "private": true,
   "author": "Zlepper",
   "license": "MIT",
+  "scripts": {
+    "g:tsc": "tsc"
+  },
   "devDependencies": {
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.3"
   },
   "workspaces": [
     "./packages/*",
