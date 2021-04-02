@@ -1,8 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "lib": ["ES2015", "WebWorker"]
+    "lib": ["ES2020", "WebWorker"]
   },
   "files": ["index.ts"],
-  "exclude": ["node_modules"]
 }

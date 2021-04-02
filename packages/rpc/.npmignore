@@ -6,3 +6,5 @@ cypress.json
 .editorconfig
 .idea/
 babel.config.js
+**/*.ts
+!**/*.d.ts

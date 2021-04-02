@@ -1,8 +1,9 @@
 {
   "name": "@zlepper/calculator",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "cd ${INIT_CWD} && tsc"
+    "tsc": "tsc"
   },
   "devDependencies": {
     "typescript": "^4.2.3"

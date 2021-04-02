@@ -3,8 +3,8 @@ import { CrossInvocation, CrossInvocationResult } from './shared';
 import { WorkerServerConnection } from './worker';
 
 class Pipe {
-  private clientCallback: (message: CrossInvocationResult) => void;
-  private serverCallback: (message: CrossInvocation) => void;
+  private clientCallback?: (message: CrossInvocationResult) => void;
+  private serverCallback?: (message: CrossInvocation) => void;
 
   sendToServer(message: CrossInvocation) {
     const raw = JSON.stringify(message);
@@ -26,14 +26,13 @@ class Pipe {
     this.clientCallback = callback;
   }
 
-  registerServerCallback(callback: (message: CrossInvocation) => void) {
+  registerServerCallback(callback?: (message: CrossInvocation) => void) {
     this.serverCallback = callback;
   }
 }
 
 export class TestClientConnection implements WorkerClientConnection {
-  constructor(private pipe: Pipe) {
-  }
+  constructor(private pipe: Pipe) {}
 
   addListener(callback: (data: CrossInvocationResult) => void): void {
     this.pipe.registerClientCallback(callback);
@@ -45,27 +44,25 @@ export class TestClientConnection implements WorkerClientConnection {
 }
 
 export class TestServerConnection implements WorkerServerConnection {
-  constructor(private pipe: Pipe) {
-  }
+  constructor(private pipe: Pipe) {}
 
   addListener(callback: (data: CrossInvocation) => void): void {
     this.pipe.registerServerCallback(callback);
   }
 
   removeListener(): void {
-    this.pipe.registerServerCallback(null);
+    this.pipe.registerServerCallback(undefined);
   }
 
   send(message: CrossInvocationResult): void {
     this.pipe.sendToClient(message);
   }
-
 }
 
-export function createTestConnection(): {client: TestClientConnection, server: TestServerConnection} {
+export function createTestConnection(): { client: TestClientConnection; server: TestServerConnection } {
   const pipe = new Pipe();
   const client = new TestClientConnection(pipe);
   const server = new TestServerConnection(pipe);
 
-  return {client, server};
+  return { client, server };
 }
