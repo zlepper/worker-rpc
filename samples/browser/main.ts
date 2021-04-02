@@ -9,4 +9,26 @@ const workerConnection = new WebWorkerClientConnection(worker);
 
 const wrapper = wrapBackgroundService<MyClass>(workerConnection);
 
-useMyClass(wrapper);
+const result = wrapper.sayHello('Zlepper');
+
+result.then(r => {
+  console.log({ result, r });
+});
+
+const longRunning = wrapper.longRunningMethod('Zlepper', 1500);
+
+longRunning.then(r => {
+  console.log({ r, longRunning });
+});
+
+const asJson = wrapper.toJson({
+  key: 'hello',
+  nested: {
+    v: 'a',
+  },
+});
+
+asJson.then(json => {
+  console.log({ json });
+});
+

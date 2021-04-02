@@ -90,6 +90,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^14.14.37":
+  version: 14.14.37
+  resolution: "@types/node@npm:14.14.37"
+  checksum: 5e2d9baf7594ebacaf016716515f30de0765169412787f981481c2fb8b468923149bb9e2e3219ee672399811672ceddc339a7372a61cf15bc656836a5494d991
+  languageName: node
+  linkType: hard
+
 "@types/sinonjs__fake-timers@npm:^6.0.1":
   version: 6.0.2
   resolution: "@types/sinonjs__fake-timers@npm:6.0.2"
@@ -137,6 +144,17 @@ __metadata:
   resolution: "@zlepper/web-worker-rpc@workspace:packages/web-worker-rpc"
   dependencies:
     cypress: ^6.8.0
+    typescript: ^4.2.3
+  peerDependencies:
+    "@zlepper/rpc": "*"
+  languageName: unknown
+  linkType: soft
+
+"@zlepper/worker-threads-rpc@workspace:packages/worker-threads-rpc":
+  version: 0.0.0-use.local
+  resolution: "@zlepper/worker-threads-rpc@workspace:packages/worker-threads-rpc"
+  dependencies:
+    "@types/node": ^14.14.37
     typescript: ^4.2.3
   peerDependencies:
     "@zlepper/rpc": "*"

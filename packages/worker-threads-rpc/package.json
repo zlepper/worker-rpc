@@ -1,0 +1,10 @@
+{
+  "name": "@zlepper/worker-threads-rpc",
+  "peerDependencies": {
+    "@zlepper/rpc": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.37",
+    "typescript": "^4.2.3"
+  }
+}

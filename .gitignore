@@ -2,6 +2,7 @@ build/
 node_modules/
 .idea/
 *.js
+!.pnp.js
 *.js.map
 *.d.ts
 

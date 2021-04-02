@@ -58,7 +58,7 @@ class BackgroundWrapper<T extends object> {
   }
 
   set(_target: T, _propertyName: PropertyKey, _vValue: any): boolean {
-    throw new Error('`set` is not supported on wapped objects');
+    throw new Error('`set` is not supported on wrapped objects');
   }
 
   deleteProperty(_target: T, _propertyName: PropertyKey): boolean {

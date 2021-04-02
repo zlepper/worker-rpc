@@ -18,30 +18,3 @@ export class MyClass {
     return JSON.stringify(o);
   }
 }
-
-export function useMyClass(wrapper: WrappedObject<MyClass>, done?: () => void) {
-  const result = wrapper.sayHello('Zlepper');
-
-  result.then(r => {
-    console.log({ result, r });
-  });
-
-  const longRunning = wrapper.longRunningMethod('Zlepper', 1500);
-
-  longRunning.then(r => {
-    console.log({ r, longRunning });
-    done?.();
-  });
-
-  const asJson = wrapper.toJson({
-    key: 'hello',
-    nested: {
-      v: 'a',
-    },
-  });
-
-  asJson.then(json => {
-    console.log({ json });
-  });
-
-}
