@@ -4,3 +4,12 @@ node_modules/
 *.js
 *.js.map
 *.d.ts
+
+# Yarn stuff
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

@@ -5,21 +5,9 @@
   "author": "Zlepper",
   "license": "MIT",
   "devDependencies": {
-    "@types/chai": "^4.2.15",
-    "@types/mocha": "^8.2.2",
-    "@types/node": "^14.14.37",
-    "chai": "^4.3.4",
-    "mocha": "^8.3.2",
-    "prettier": "^2.2.1",
-    "ts-loader": "^8.1.0",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.3",
-    "webpack": "^5.28.0",
-    "webpack-cli": "^4.6.0"
+    "prettier": "^2.2.1"
   },
-  "workspaces": {
-    "packages": [
-      "./packages/*"
-    ]
-  }
+  "workspaces": [
+    "./packages/*"
+  ]
 }

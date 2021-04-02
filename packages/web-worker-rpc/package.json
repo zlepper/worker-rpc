@@ -1,5 +1,5 @@
 {
-  "name": "web-worker-rpc",
+  "name": "@zlepper/web-worker-rpc",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,9 +14,10 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "@zlepper/rpc": "0.0.3"
+    "@zlepper/rpc": "*"
   },
   "devDependencies": {
-    "cypress": "^6.8.0"
+    "cypress": "^6.8.0",
+    "typescript": "^4.2.3"
   }
 }
