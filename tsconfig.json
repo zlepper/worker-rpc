@@ -9,8 +9,7 @@
     "noImplicitAny": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "Node",
-    "declaration": true,
-    "outDir": "./build"
+    "declaration": true
   },
   "exclude": [
     "node_modules",

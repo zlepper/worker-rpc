@@ -1,5 +1,5 @@
-import {CrossInvocation, CrossInvocationResult, FunctionArguments} from '../shared';
-import {WorkerClientConnection} from "./worker-client-connection";
+import { CrossInvocation, CrossInvocationResult, FunctionArguments } from '../shared/cross-invocation.js';
+import { WorkerClientConnection } from './worker-client-connection.js';
 
 type ResultListener<T extends object, TPropertyName extends keyof T> = (result: CrossInvocationResult<T, TPropertyName>) => void;
 type Cleanup = () => void;
@@ -93,7 +93,7 @@ export type WrappedObject<T> = {
 export function wrapBackgroundService<T extends object>(workerConnection: WorkerClientConnection): WrappedObject<T> {
   const wrapper = new BackgroundWrapper<T>(workerConnection);
 
-  const proxiedWrapper = new Proxy({} as T, wrapper as any as ProxyHandler<T>);
+  const proxiedWrapper = new Proxy({} as T, (wrapper as any) as ProxyHandler<T>);
 
   return proxiedWrapper as WrappedObject<T>;
 }

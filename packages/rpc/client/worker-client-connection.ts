@@ -1,4 +1,4 @@
-import {CrossInvocation, CrossInvocationResult} from '../shared';
+import {CrossInvocation, CrossInvocationResult} from '../shared/cross-invocation.js';
 
 /**
  * Wraps around the connection to the underlying worker

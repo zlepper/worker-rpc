@@ -2,6 +2,5 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "esm"
-  },
-  "files": ["calculator.ts"]
+  }
 }

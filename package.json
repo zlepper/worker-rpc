@@ -5,11 +5,7 @@
   "author": "Zlepper",
   "license": "MIT",
   "scripts": {
-    "g:tsc": "yarn workspaces run tsc"
-  },
-  "devDependencies": {
-    "prettier": "^2.2.1",
-    "typescript": "^4.2.3"
+    "g:build": "yarn workspaces foreach --topological-dev run build"
   },
   "workspaces": [
     "./packages/*",

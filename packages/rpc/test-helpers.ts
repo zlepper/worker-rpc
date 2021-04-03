@@ -1,6 +1,6 @@
-import { WorkerClientConnection } from './client';
-import { CrossInvocation, CrossInvocationResult } from './shared';
-import { WorkerServerConnection } from './worker';
+import { WorkerClientConnection } from './client/worker-client-connection.js';
+import { CrossInvocation, CrossInvocationResult } from './shared/cross-invocation.js';
+import { WorkerServerConnection } from './worker/worker-server-connection.js';
 
 class Pipe {
   private clientCallback?: (message: CrossInvocationResult) => void;

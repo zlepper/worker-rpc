@@ -1,4 +1,7 @@
-build/
+dist/
+module/
+cjs/
+esm/
 node_modules/
 .idea/
 *.js

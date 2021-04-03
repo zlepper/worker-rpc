@@ -2,28 +2,27 @@
   "name": "@zlepper/rpc",
   "version": "0.0.3",
   "description": "Allows RPC from the main thread to a background worker thread (Of any kind), using ES6 classes.",
-  "main": "build/src/index.js",
   "scripts": {
-    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/*.spec.ts'",
-    "watch": "tsc --watch",
-    "build": "tsc"
+    "test": "yarn run build-tests && mocha 'tests/build/tests/*.spec.js'",
+    "build": "tsc",
+    "build-tests": "tsc -p tests"
   },
   "keywords": [
     "RMI",
     "RPC"
   ],
   "devDependencies": {
-    "@types/chai": "^4",
-    "@types/mocha": "^8",
+    "@types/chai": "^4.2.15",
+    "@types/mocha": "^8.2.2",
     "@zlepper/calculator": "workspace:*",
     "chai": "^4.3.4",
     "mocha": "^8.3.2",
     "prettier": "^2.2.1",
-    "ts-node": "^9.1.1",
     "typescript": "^4.2.3"
   },
   "author": "Zlepper",
   "license": "MIT",
-  "types": "build/src/index.d.ts",
+  "types": "esm/index.d.ts",
+  "main": "esm/index.js",
   "type": "module"
 }

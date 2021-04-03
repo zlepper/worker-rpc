@@ -1,13 +1,13 @@
 {
   "name": "@zlepper/calculator",
   "private": true,
-  "type": "module",
   "scripts": {
-    "tsc": "tsc"
+    "build": "tsc"
   },
   "devDependencies": {
     "typescript": "^4.2.3"
   },
-  "main": "calculator.js",
-  "types": "calculator.d.ts"
+  "type": "module",
+  "main": "esm/calculator.js",
+  "types": "esm/calculator.d.ts"
 }

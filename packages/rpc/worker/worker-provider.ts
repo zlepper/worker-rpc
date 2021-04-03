@@ -1,5 +1,5 @@
-import { CrossInvocation, FailedCrossInvocationResult, SuccessfulCrossInvocationResult } from '../shared';
-import {WorkerServerConnection} from "./worker-server-connection";
+import { CrossInvocation, FailedCrossInvocationResult, SuccessfulCrossInvocationResult } from '../shared/cross-invocation.js';
+import {WorkerServerConnection} from "./worker-server-connection.js";
 
 interface WorkerProviderRef {
   stop(): void;
