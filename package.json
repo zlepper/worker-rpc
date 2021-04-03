@@ -10,5 +10,8 @@
   "workspaces": [
     "./packages/*",
     "./samples/*"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
 }

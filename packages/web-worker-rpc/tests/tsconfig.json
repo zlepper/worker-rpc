@@ -4,5 +4,5 @@
     "types": ["cypress", "@types/node"],
     "outDir": "./build"
   },
-  "files": ["test-worker.ts"]
+  "files": ["test-worker.ts", "tests.spec.ts"]
 }

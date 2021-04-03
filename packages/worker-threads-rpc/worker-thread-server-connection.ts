@@ -1,12 +1,10 @@
-import { CrossInvocation, CrossInvocationResult } from '../shared';
-import { WorkerServerConnection } from '../worker';
+import { CrossInvocation, CrossInvocationResult, WorkerServerConnection } from '@zlepper/rpc';
 import { MessagePort } from 'worker_threads';
 
 export class WorkerThreadServerConnection implements WorkerServerConnection {
-  constructor(private parent: MessagePort) {
-  }
-
   private wrapperCallback?: (data: CrossInvocation) => void;
+
+  constructor(private parent: MessagePort) {}
 
   addListener(callback: (data: CrossInvocation) => void): void {
     this.wrapperCallback = callback;
@@ -14,7 +12,7 @@ export class WorkerThreadServerConnection implements WorkerServerConnection {
   }
 
   removeListener(): void {
-    if(this.wrapperCallback) {
+    if (this.wrapperCallback) {
       this.parent.off('message', this.wrapperCallback);
     }
     this.wrapperCallback = undefined;
@@ -23,5 +21,4 @@ export class WorkerThreadServerConnection implements WorkerServerConnection {
   send(message: CrossInvocationResult): void {
     this.parent.postMessage(message, null as any);
   }
-
 }

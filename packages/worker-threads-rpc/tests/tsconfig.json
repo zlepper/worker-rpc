@@ -1,8 +1,7 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "lib": ["ES2015"],
-    "allowJs": true,
-    "checkJs": true
-  }
+    "outDir": "build"
+  },
+  "files": ["test-worker.ts", "tests.spec.ts"]
 }

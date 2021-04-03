@@ -1,6 +1,7 @@
 import { parentPort } from 'worker_threads';
-import { startWorkerProvider, WorkerThreadServerConnection } from '../../src';
-import { Calculator } from '../shared/calculator';
+import { startWorkerProvider } from '@zlepper/rpc';
+import { Calculator } from '@zlepper/testing';
+import { WorkerThreadServerConnection } from '../worker-thread-server-connection.js';
 
 
 if (parentPort) {

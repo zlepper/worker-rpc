@@ -3,5 +3,5 @@
   "compilerOptions": {
     "outDir": "esm"
   },
-  "files": ["calculator.ts"]
+  "include": ["*.ts"],
 }
