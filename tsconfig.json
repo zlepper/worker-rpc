@@ -9,7 +9,8 @@
     "noImplicitAny": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "Node",
-    "declaration": true
+    "declaration": true,
+    "lib": ["ESNext"]
   },
   "exclude": [
     "node_modules",

@@ -1,8 +1,9 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "types": ["cypress", "@types/node"],
-    "outDir": "./build"
+    "types": ["cypress"],
+    "outDir": "./build",
+    "lib": ["ESNext", "DOM"]
   },
   "files": ["test-worker.ts", "tests.spec.ts"]
 }

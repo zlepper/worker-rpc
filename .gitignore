@@ -4,6 +4,7 @@ cjs/
 esm/
 node_modules/
 .idea/
+coverage/
 *.js
 !.pnp.js
 *.js.map

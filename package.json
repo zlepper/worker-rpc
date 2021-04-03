@@ -5,13 +5,16 @@
   "author": "Zlepper",
   "license": "MIT",
   "scripts": {
-    "g:build": "yarn workspaces foreach --topological-dev run build"
+    "g:build": "yarn workspaces foreach --topological-dev run build",
+    "g:test": "yarn workspaces foreach run test"
   },
   "workspaces": [
     "./packages/*",
     "./samples/*"
   ],
   "devDependencies": {
-    "prettier": "^2.2.1"
-  }
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.3"
+  },
+  "type": "module"
 }

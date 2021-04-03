@@ -2,7 +2,10 @@ const path = require('path');
 
 module.exports = {
   context: path.resolve(__dirname),
-  entry: './test-worker.ts',
+  entry: {
+    worker: './test-worker.ts',
+    spec: './tests.spec.ts'
+  },
   module: {
     rules: [
       {
@@ -16,7 +19,7 @@ module.exports = {
     extensions: ['.ts', '.js'],
   },
   output: {
-    filename: 'test-worker.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'build'),
   },
   mode: 'development'

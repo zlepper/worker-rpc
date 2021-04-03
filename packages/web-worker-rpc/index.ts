@@ -1,2 +1,2 @@
-export * from './web-worker-client-connection';
-export * from './web-worker-server-connection';
+export * from './web-worker-client-connection.js';
+export * from './web-worker-server-connection.js';

@@ -1,12 +1,9 @@
-import { Calculator } from '@zlepper/testing';
 import { wrapBackgroundService, WrappedObject } from '@zlepper/rpc';
-import { integrationTests } from '../../testing/testing.js';
-import { WebWorkerClientConnection } from '../web-worker-client-connection.js';
+import { Calculator, integrationTests } from '@zlepper/testing';
+import { WebWorkerClientConnection } from '../web-worker-client-connection';
 
 function create(): [WrappedObject<Calculator>, Worker] {
-  const worker = new Worker('tests/build/test/test-worker.js', {
-    type: 'module',
-  });
+  const worker = new Worker('/build/worker.js');
 
   worker.addEventListener('error', err => console.error(err));
 
@@ -20,7 +17,9 @@ describe('Browser', function () {
   let worker: Worker;
 
   beforeEach(function () {
-    [calculator, worker] = create();
+    cy.visit('./index.html').then(() => {
+      [calculator, worker] = create();
+    });
   });
 
   integrationTests(() => calculator);

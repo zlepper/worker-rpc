@@ -1,0 +1,10 @@
+{
+  "pluginsFile": false,
+  "fixturesFolder": false,
+  "supportFile": false,
+  "screenshotOnRunFailure": false,
+  "video": false,
+  "fileServerFolder": "tests",
+  "integrationFolder": "tests",
+  "testFiles": "build/spec.js"
+}
