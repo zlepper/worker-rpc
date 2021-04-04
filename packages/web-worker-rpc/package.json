@@ -12,8 +12,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@zlepper/rpc": "workspace:*"
+  "peerDependencies": {
+    "@zlepper/rpc": "*"
   },
   "devDependencies": {
     "@zlepper/testing": "workspace:*",

@@ -5,8 +5,8 @@
     "build": "tsc",
     "build-tests": "tsc -p tests"
   },
-  "dependencies": {
-    "@zlepper/rpc": "workspace:*"
+  "peerDependencies": {
+    "@zlepper/rpc": "*"
   },
   "devDependencies": {
     "@types/mocha": "^8.2.2",
