@@ -1,5 +1,3 @@
-import { WrappedObject } from '../../src/client/worker-consumer.js';
-
 export class MyClass {
   public sayHello(name: string): string {
     return 'hello ' + name;

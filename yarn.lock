@@ -384,6 +384,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@zlepper/sample-nodejs-worker-threads@workspace:samples/nodejs-worker-threads":
+  version: 0.0.0-use.local
+  resolution: "@zlepper/sample-nodejs-worker-threads@workspace:samples/nodejs-worker-threads"
+  dependencies:
+    "@zlepper/rpc": "workspace:*"
+    "@zlepper/worker-threads-rpc": "workspace:*"
+    typescript: ^4.2.3
+  languageName: unknown
+  linkType: soft
+
 "@zlepper/testing@workspace:*, @zlepper/testing@workspace:packages/testing":
   version: 0.0.0-use.local
   resolution: "@zlepper/testing@workspace:packages/testing"
@@ -418,12 +428,13 @@ __metadata:
     "@zlepper/rpc": "workspace:*"
     "@zlepper/web-worker-rpc": "workspace:*"
     ts-loader: ^8.1.0
+    typescript: ^4.2.3
     webpack: ^5.30.0
     webpack-cli: ^4.6.0
   languageName: unknown
   linkType: soft
 
-"@zlepper/worker-threads-rpc@workspace:packages/worker-threads-rpc":
+"@zlepper/worker-threads-rpc@workspace:*, @zlepper/worker-threads-rpc@workspace:packages/worker-threads-rpc":
   version: 0.0.0-use.local
   resolution: "@zlepper/worker-threads-rpc@workspace:packages/worker-threads-rpc"
   dependencies:
