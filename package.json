@@ -6,7 +6,7 @@
   "scripts": {
     "g:build": "yarn workspaces foreach --topological-dev run build",
     "g:test": "yarn workspaces foreach run test",
-    "publish-rpc": "cd packages/rpc && yarn npm publish",
+    "publish-rpc": "yarn run g:build && cd packages/rpc && yarn npm publish",
     "publish-web-worker": "cd packages/web-worker-rpc && yarn npm publish",
     "publish-worker-threads": "cd packages/worker-threads-rpc && yarn npm publish",
     "publish-all": "yarn run publish-rpc && yarn run publish-web-worker && yarn run publish-worker-threads"
