@@ -1,12 +1,15 @@
-import { MyClass, useMyClass } from '../shared/my-class.js';
-import { wrapBackgroundService } from '../../src/client/worker-consumer.js';
-import { WebWorkerClientConnection } from '../../src/web-worker/web-worker-client-connection.js';
+import { wrapBackgroundService } from '@zlepper/rpc';
+import { WebWorkerClientConnection } from '@zlepper/web-worker-rpc';
+import { MyClass } from './my-class';
 
-const worker = new Worker('build/sample/worker.js', {
+// Start the web-worker
+const worker = new Worker(new URL('./worker', import.meta.url), {
   type: 'module',
 });
+// Wrap it in a connection so the rpc library can use it
 const workerConnection = new WebWorkerClientConnection(worker);
 
+// Wrap the class that is being used in the actual worker
 const wrapper = wrapBackgroundService<MyClass>(workerConnection);
 
 const result = wrapper.sayHello('Zlepper');
