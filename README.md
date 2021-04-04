@@ -4,8 +4,24 @@ RPC is a tiny library that makes it easier to deal with web-workers, or any othe
 kind of background thread in js/ts land. 
 
 ## Installation
+
+
+First install the main part of the library
 ```shell
 npm install --save @zlepper/rpc
+```
+
+Next you need to pick what kind of worker model you are using. Currently `web-worker` and `worker-threads`
+are available, for browsers and NodeJS respectively. 
+
+If you want to go with the `web-worker` model:
+```shell
+npm install --save @zlepper/web-worker-rpc
+```
+
+If you want to go with the `worker-threads` model:
+```shell
+npm install --save @zlepper/worker-threads-rpc
 ```
 
 ## Usage
@@ -14,8 +30,8 @@ This sample shows how to implement a simple calculator that runs in a web-worker
 
 Start by creating the actual class that has the logic that should be run in your worker:
 
-`calculator.ts`:
 ```ts
+// calculator.ts
 export class Calculator {
   public add(a: number, b: number): number {
     return a + b;
@@ -29,28 +45,35 @@ export class Calculator {
 
 Next create the worker initialization code:
 
-`worker.ts`
 ```ts
-import { startWorkerProvider, WebWorkerServerConnection } from '@zlepper/rpc';
+// worker.ts
+import { startWorkerProvider } from '@zlepper/rpc';
+import { WebWorkerServerConnection } from '@zlepper/web-worker-rpc';
 import { Calculator } from './calculator';
 
+// Create a wrapper around the connection. The specific wrapper class
+// depends on which worker model you are using.
 const connection = new WebWorkerServerConnection();
+// Then provide the actual class you want to wrap.
 startWorkerProvider(new Calculator(), connection);
 ```
 
 Lastly in your main thread: Start the worker and connect to it:
-
-`main.ts`
-
 ```ts
+// main.ts
 import { Calculator } from './calculator';
-import { wrapBackgroundService, WebWorkerClientConnection } from '@zlepper/rpc';
+import { wrapBackgroundService } from '@zlepper/rpc';
+import { WebWorkerClientConnection } from '@zlepper/web-worker-rpc';
 
+// First start the worker itself
 const worker = new Worker('worker.ts', {
   type: 'module'
 });
+// Wrap the connection, the class is again specific to the worker model 
+// you wish to use. 
 const connection = new WebWorkerClientConnection(worker);
 
+// Lastly access the wrapped "instance" of your class. 
 const wrapper = wrapBackgroundService<Calculator>(connection);
 
 console.log(await wrapper.add(1, 2)); // Logs '3'
@@ -75,8 +98,8 @@ and reject the promise there.
 
 #### Why the whole "connection" part? 
 The library supports other ways of using "workers" than just web workers. e.g., `worker_threads` from node.js. 
-Additionally, it is possible to plug your own connection implementation, fx to allow usage of WebSockets to communicate
-with a web server. 
+Additionally, it is possible to plug your own connection implementation, e.g., to allow usage of WebSockets to communicate
+with a web server, or maybe Electron's IPC.
 
 #### How to I stop the connection when I want to get rid of it?
 Just `.terminate()` the worker, or equivalent with whatever connection library you are using.
@@ -97,4 +120,19 @@ obeyed for everything to keep working.
 * Callbacks or streamed results is currently not supported. I'm considering using rxjs to allow for multiple
   result values, however the current version does not support that.
 * Due to the usage of [`Proxy`](https://caniuse.com/proxy) this library does not work with IE11, but requires
-  a modern browser. 
+  a modern browser.
+* CommonJS currently isn't supported, as I couldn't get that and modules working properly at the same time.
+  
+## Samples
+Samples can be found in the [samples](/samples) folder. 
+
+* [Web Worker](/samples/web-worker-sample)
+* [Worker Threads (NodeJS)](/samples/web-worker-sample)
+
+## Available worker models. 
+Currently, 2 worker models are available:
+
+* [Web Worker](/packages/web-worker-rpc)
+* [Worker Threads](/packages/worker-threads-rpc)
+
+Check the individual models for more specific information. 
