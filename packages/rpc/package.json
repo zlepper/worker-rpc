@@ -12,8 +12,10 @@
     "RPC"
   ],
   "devDependencies": {
+    "@types/chai": "^4.2.15",
     "@types/mocha": "^8.2.2",
     "@zlepper/testing": "workspace:*",
+    "chai": "^4.3.4",
     "mocha": "^8.3.2",
     "typescript": "^4.2.3"
   },

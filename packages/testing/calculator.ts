@@ -15,4 +15,16 @@ export class Calculator {
 
     return sum;
   }
+
+  private _currentValue = 0;
+
+  public increment(): number {
+    this._currentValue++;
+    return this._currentValue;
+  }
+
+  public resetCount() {
+    this._currentValue = 0;
+    return this._currentValue;
+  }
 }

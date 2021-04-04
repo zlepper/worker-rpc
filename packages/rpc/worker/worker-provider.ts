@@ -53,7 +53,7 @@ class WorkerProvider<T extends object> implements WorkerProviderRef {
         return;
       }
 
-      const result = prop(...invocation.args);
+      const result = prop.apply(this.target, invocation.args);
 
       Promise.resolve(result)
         .then(response => {
