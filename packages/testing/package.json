@@ -1,6 +1,5 @@
 {
   "name": "@zlepper/testing",
-  "private": true,
   "scripts": {
     "build": "tsc"
   },

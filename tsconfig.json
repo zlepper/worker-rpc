@@ -10,7 +10,8 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "Node",
     "declaration": true,
-    "lib": ["ESNext"]
+    "lib": ["ESNext"],
+    "types": []
   },
   "exclude": [
     "node_modules",
