@@ -1,6 +1,6 @@
 {
   "name": "@zlepper/web-worker-rpc",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "scripts": {
     "test": "yarn run build-tests && yarn run test-chrome && yarn run test-firefox",
@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "@zlepper/rpc": "*"
+    "@zlepper/rpc": "^0.0.4"
   },
   "devDependencies": {
     "@zlepper/testing": "workspace:*",
@@ -25,5 +25,9 @@
   },
   "type": "module",
   "main": "esm/index.js",
-  "types": "esm/index.d.ts"
+  "types": "esm/index.d.ts",
+  "files": [
+    "package.json",
+    "esm/**/*.*"
+  ]
 }

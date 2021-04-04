@@ -1,7 +1,6 @@
 {
   "name": "@zlepper/sample-nodejs-worker-threads",
   "private": true,
-  "version": "1.0.0",
   "scripts": {
     "build": "tsc",
     "start": "yarn node build/main.js",

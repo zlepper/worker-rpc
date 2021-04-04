@@ -1,7 +1,6 @@
 {
   "name": "@zlepper/web-worker-sample",
   "private": true,
-  "version": "1.0.0",
   "scripts": {
     "build": "webpack -c webpack.config.cjs"
   },

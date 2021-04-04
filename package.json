@@ -1,12 +1,15 @@
 {
   "name": "@zlepper/rpc-root",
-  "version": "1.0.0",
   "private": true,
   "author": "Zlepper",
   "license": "MIT",
   "scripts": {
     "g:build": "yarn workspaces foreach --topological-dev run build",
-    "g:test": "yarn workspaces foreach run test"
+    "g:test": "yarn workspaces foreach run test",
+    "publish-rpc": "cd packages/rpc && yarn npm publish",
+    "publish-web-worker": "cd packages/web-worker-rpc && yarn npm publish",
+    "publish-worker-threads": "cd packages/worker-threads-rpc && yarn npm publish",
+    "publish-all": "yarn run publish-rpc && yarn run publish-web-worker && yarn run publish-worker-threads"
   },
   "workspaces": [
     "./packages/*",

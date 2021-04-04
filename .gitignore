@@ -9,6 +9,7 @@ coverage/
 !.pnp.js
 *.js.map
 *.d.ts
+*.tgz
 
 # Yarn stuff
 .yarn/*

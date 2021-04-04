@@ -1,6 +1,6 @@
 {
   "name": "@zlepper/rpc",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Allows RPC from the main thread to a background worker thread (Of any kind), using ES6 classes.",
   "scripts": {
     "test": "yarn run build-tests && mocha 'tests/build/tests/*.spec.js'",
@@ -21,5 +21,9 @@
   "license": "MIT",
   "types": "esm/index.d.ts",
   "main": "esm/index.js",
-  "type": "module"
+  "type": "module",
+  "files": [
+    "esm/**/*.*",
+    "package.json"
+  ]
 }
