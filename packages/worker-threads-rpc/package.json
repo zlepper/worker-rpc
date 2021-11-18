@@ -1,6 +1,6 @@
 {
   "name": "@zlepper/worker-threads-rpc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "test": "yarn run build-tests && mocha tests/build/tests/*.spec.js",
     "build": "tsc",

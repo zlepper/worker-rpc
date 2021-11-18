@@ -1,6 +1,6 @@
 {
   "name": "@zlepper/web-worker-rpc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "scripts": {
     "test": "yarn run build-tests && yarn run test-chrome && yarn run test-firefox",
