@@ -1,13 +1,13 @@
 {
   "name": "@zlepper/worker-threads-rpc",
-  "version": "0.0.2",
+  "version": "0.0.9",
   "scripts": {
     "test": "yarn run build-tests && mocha tests/build/tests/*.spec.js",
     "build": "tsc",
     "build-tests": "tsc -p tests"
   },
   "peerDependencies": {
-    "@zlepper/rpc": "^0.0.5"
+    "@zlepper/rpc": "^0.0.9"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.1",

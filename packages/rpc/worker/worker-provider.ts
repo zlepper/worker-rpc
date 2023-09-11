@@ -9,13 +9,13 @@ interface WorkerProviderRef {
 
 
 // @ts-ignore
-function isEventDispatcher<T extends object|MyEventDispatcher<TEvent>, TEvent extends object>(target: T): target is MyEventDispatcher<TEvent> {
+function isEventDispatcher<T extends object|EventDispatcher<TEvent>, TEvent extends object>(target: T): target is EventDispatcher<TEvent> {
   return '__initializeEventDispatcher' in target;
 
 }
 
 
-class WorkerProvider<TWorker extends object|MyEventDispatcher<TEvent>, TEvent extends object = InferEvent<TWorker>> implements WorkerProviderRef {
+class WorkerProvider<TWorker extends object|EventDispatcher<TEvent>, TEvent extends object = InferEvent<TWorker>> implements WorkerProviderRef {
   constructor(private target: TWorker, private serverConnection: WorkerServerConnection) {
     if (isEventDispatcher<TWorker, TEvent>(target)) {
       target.__initializeEventDispatcher(this as any);
@@ -103,7 +103,7 @@ export function createWorkerProvider<T extends object>(target: T, serverConnecti
   return new WorkerProvider(target, serverConnection);
 }
 
-export abstract class MyEventDispatcher<TEvent extends object> implements IEventDispatcher<TEvent> {
+export abstract class EventDispatcher<TEvent extends object> implements IEventDispatcher<TEvent> {
 
   /**
    * @internal

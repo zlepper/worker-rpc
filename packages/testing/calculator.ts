@@ -1,10 +1,10 @@
-import { MyEventDispatcher } from "@zlepper/rpc";
+import { EventDispatcher } from "@zlepper/rpc";
 
 export interface CalculatorEvents {
   "count-changed": number;
 }
 
-export class Calculator extends MyEventDispatcher<CalculatorEvents> {
+export class Calculator extends EventDispatcher<CalculatorEvents> {
   public add(a: number, b: number): number {
     return a + b;
   }

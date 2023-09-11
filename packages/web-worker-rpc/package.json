@@ -1,6 +1,6 @@
 {
   "name": "@zlepper/web-worker-rpc",
-  "version": "0.0.2",
+  "version": "0.0.9",
   "description": "",
   "scripts": {
     "test": "yarn run build-tests && yarn run test-chrome && yarn run test-firefox",
@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "@zlepper/rpc": "^0.0.5"
+    "@zlepper/rpc": "^0.0.9"
   },
   "devDependencies": {
     "@zlepper/testing": "workspace:*",
