@@ -1,4 +1,10 @@
-export class Calculator {
+import { MyEventDispatcher } from "@zlepper/rpc";
+
+export interface CalculatorEvents {
+  "count-changed": number;
+}
+
+export class Calculator extends MyEventDispatcher<CalculatorEvents> {
   public add(a: number, b: number): number {
     return a + b;
   }
@@ -20,11 +26,13 @@ export class Calculator {
 
   public increment(): number {
     this._currentValue++;
+    this.dispatchEvent("count-changed", this._currentValue);
     return this._currentValue;
   }
 
   public resetCount() {
     this._currentValue = 0;
+    this.dispatchEvent("count-changed", this._currentValue);
     return this._currentValue;
   }
 }

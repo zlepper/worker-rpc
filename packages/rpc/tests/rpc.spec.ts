@@ -8,7 +8,7 @@ function create(): WrappedObject<Calculator> {
   const { client, server } = createTestConnection();
 
   startWorkerProvider(new Calculator(), server);
-  return wrapBackgroundService(client);
+  return wrapBackgroundService<Calculator>(client);
 }
 
 describe('basic tests', () => {
