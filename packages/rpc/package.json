@@ -1,6 +1,6 @@
 {
   "name": "@zlepper/rpc",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Allows RPC from the main thread to a background worker thread (Of any kind), using ES6 classes.",
   "scripts": {
     "test": "yarn run build-tests && mocha 'tests/build/tests/*.spec.js' --async-stack-traces --full-trace",

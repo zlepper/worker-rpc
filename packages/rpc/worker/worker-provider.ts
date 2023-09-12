@@ -105,6 +105,12 @@ export function createWorkerProvider<T extends object>(target: T, serverConnecti
 
 export abstract class EventDispatcher<TEvent extends object> implements IEventDispatcher<TEvent> {
 
+
+  /**
+   * @private
+   */
+  ___typescriptInferenceHack: TEvent = null as any;
+
   /**
    * @internal
    */

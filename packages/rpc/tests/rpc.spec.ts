@@ -20,11 +20,17 @@ describe('basic tests', () => {
 
   integrationTests(() => calculator);
 
-  it('should allow access to class properties on the underlying object', async function() {
+  it('should allow access to class properties on the underlying object', async function () {
+    let lastCount = 0;
+    calculator.addEventListener('count-changed', c => {
+      lastCount = c;
+    });
+
     expect(await calculator.increment()).to.equal(1);
     expect(await calculator.increment()).to.equal(2);
     expect(await calculator.increment()).to.equal(3);
     await calculator.resetCount();
     expect(await calculator.increment()).to.equal(1);
+    expect(lastCount).to.equal(1);
   });
 });

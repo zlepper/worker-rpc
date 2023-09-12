@@ -467,7 +467,7 @@ __metadata:
     webpack: ^5.88.2
     webpack-cli: ^5.1.4
   peerDependencies:
-    "@zlepper/rpc": ^0.0.5
+    "@zlepper/rpc": ^0.1.0
   languageName: unknown
   linkType: soft
 
@@ -495,7 +495,7 @@ __metadata:
     ts-node: ^9.1.1
     typescript: ^5.1.5
   peerDependencies:
-    "@zlepper/rpc": ^0.0.5
+    "@zlepper/rpc": ^0.1.0
   languageName: unknown
   linkType: soft
 
